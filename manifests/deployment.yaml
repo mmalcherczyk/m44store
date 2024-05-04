@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: m44store
+  labels:
+    app: m44store
+  namespace: e-commerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: m44store
+  template:
+    metadata:
+      labels:
+        app: m44store
+    spec:
+      containers:
+        - name: m44store
+          image: acrworkflow1714844397962.azurecr.io/image-workflow-1714844397962:latest
+          ports:
+            - containerPort: 3000
