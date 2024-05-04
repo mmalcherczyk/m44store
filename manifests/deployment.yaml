@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mypipeline
+  labels:
+    app: mypipeline
+  namespace: namespace-workflow-1714849690605
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mypipeline
+  template:
+    metadata:
+      labels:
+        app: mypipeline
+    spec:
+      containers:
+        - name: mypipeline
+          image: acrworkflow1714849690605.azurecr.io/image-workflow-1714849690605:latest
+          ports:
+            - containerPort: 3000
